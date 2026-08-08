@@ -1,8 +1,5 @@
 import { useState, useEffect, useRef } from "react";
 
-/* ─────────────────────────────────────────
-   GLOBAL STYLES  (injected once into <head>)
-───────────────────────────────────────── */
 const CSS = `
   @import url('https://fonts.googleapis.com/css2?family=Anton&family=JetBrains+Mono:wght@400;500;700&family=Manrope:wght@300;400;500;600;700;800&display=swap');
 
@@ -275,7 +272,7 @@ const PROJECTS = [
     desc:   "MERN e-commerce platform helping offline shopkeepers digitize their business. JWT auth, REST APIs, CRUD and responsive UI.",
     cat:    "College Project",
     stack:  ["React.js", "Node.js", "Express.js", "MongoDB"],
-    image:  "./images/project1.png",   // 👈 replace with your image file name
+    image:  "/DukaanSetu.png",          // 👈 add your image to public/ with this name
     github: "https://github.com/HarshPatel2704",
     live:   "https://dukaansetu-nine.vercel.app/",
   },
@@ -284,18 +281,9 @@ const PROJECTS = [
     desc:   "Donation platform with authentication, admin panel, donation management and optimized database queries.",
     cat:    "College Project",
     stack:  ["PHP", "MySQL", "JavaScript"],
-    image:  "../public/ShareForCare.png",   // 👈 replace with your image file name
+    image:  "/ShareForCare.png",        // 👈 add your image to public/ with this name
     github: "https://github.com/HarshPatel2704",
     live:   "https://shareforcare.infinityfree.me/home.php?i=1",
-  },
-  {
-    title:  "Online Society Management System",
-    desc:   "Society management system with complaint, maintenance, resident and admin modules.",
-    cat:    "College Project",
-    stack:  ["PHP", "MySQL", "Bootstrap"],
-    image:  "./images/project3.png",   // 👈 replace with your image file name
-    github: "https://github.com/HarshPatel2704",
-    live:   null,
   },
 ];
 
@@ -491,7 +479,8 @@ export default function HarshPatelPortfolio() {
               <Reveal key={p.title}>
                 <div className="work-card">
                   <div className="work-thumb">
-                    {p.svg}
+                    <img src={p.image} alt={p.title} loading="lazy"
+                      onError={e => { e.currentTarget.style.display = "none"; }} />
                     <div className="work-overlay">
                       <div className="work-tags">
                         {p.stack.map(t => <span key={t} className="work-tag">{t}</span>)}
